@@ -30,7 +30,7 @@ import java.util.List;
 @Getter
 public class Movie {
     @Id
-    @Column(name = "id", updatable = false)
+    @Column(name = "id", insertable = false, updatable = false)
     private String id;
 
     @Column(name = "title", nullable = false)
