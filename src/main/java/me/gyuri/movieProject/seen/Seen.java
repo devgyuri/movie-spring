@@ -17,10 +17,10 @@ public class Seen {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "id")
+    @JoinColumn(referencedColumnName = "id", name = "movieId")
     private Movie movie;
 
     @ManyToOne
-    @JoinColumn(name = "id")
+    @JoinColumn(referencedColumnName = "id", name = "userId")
     private User user;
 }

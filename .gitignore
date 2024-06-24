@@ -40,3 +40,9 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+
+
+### My Setting ###
+application.yml
+*.yml

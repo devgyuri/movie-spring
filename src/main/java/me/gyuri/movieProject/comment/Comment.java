@@ -29,11 +29,11 @@ public class Comment {
     private Double star;
 
     @ManyToOne
-    @JoinColumn(name = "id")
+    @JoinColumn(referencedColumnName = "id", name = "movieId")
     private Movie movie;
 
     @ManyToOne
-    @JoinColumn(name = "id")
+    @JoinColumn(referencedColumnName = "id", name = "userId")
     private User user;
 
     @Builder

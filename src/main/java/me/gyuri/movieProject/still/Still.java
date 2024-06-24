@@ -25,7 +25,7 @@ public class Still {
     private Boolean isRep;
 
     @ManyToOne
-    @JoinColumn(name = "id")
+    @JoinColumn(referencedColumnName = "id", name = "movieId")
     private Movie movie;
 
     @Builder

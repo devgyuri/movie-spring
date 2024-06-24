@@ -17,10 +17,10 @@ public class MovieGenre {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "id")
+    @JoinColumn(referencedColumnName = "id", name = "movieId")
     private Movie movie;
 
     @ManyToOne
-    @JoinColumn(name = "genre")
+    @JoinColumn(referencedColumnName = "id", name = "genreId")
     private Genre genre;
 }

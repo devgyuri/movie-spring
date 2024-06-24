@@ -29,11 +29,11 @@ public class MovieBoxOffice {
     private int audiAcc;
 
     @ManyToOne()
-    @JoinColumn(name = "id")
+    @JoinColumn(referencedColumnName = "id", name = "movieId")
     private Movie movie;
 
     @ManyToOne()
-    @JoinColumn(name = "id")
+    @JoinColumn(referencedColumnName = "id", name = "boxOfficeId")
     private BoxOffice boxOffice;
 
     @Builder
