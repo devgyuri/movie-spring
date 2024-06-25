@@ -22,4 +22,12 @@ public class MovieApiController {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(savedMovie);
     }
+
+    @PostMapping("/api/test")
+    public ResponseEntity<Movie> createMovieRelationData(@RequestBody CreateMovieRequest request) {
+        Movie savedMovie = movieService.createMovieRelationData(request);
+
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(savedMovie);
+    }
 }

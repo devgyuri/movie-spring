@@ -17,6 +17,7 @@ import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
+import java.util.Date;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -52,7 +53,8 @@ class MovieApiControllerTest {
         final String url = "/api/movies";
         final String id = "ID";
         final String title = "title";
-        final CreateMovieRequest userRequest = new CreateMovieRequest(id, title);
+        final Date date = new Date();
+        final CreateMovieRequest userRequest = new CreateMovieRequest(id, title, date);
 
         final String requestBody = objectMapper.writeValueAsString(userRequest);
 
@@ -69,5 +71,6 @@ class MovieApiControllerTest {
         assertThat(movies.size()).isEqualTo(1);
         assertThat(movies.get(0).getId()).isEqualTo(id);
         assertThat(movies.get(0).getTitle()).isEqualTo(title);
+        assertThat(movies.get(0).getOpenDt()).isEqualTo(date);
     }
 }
