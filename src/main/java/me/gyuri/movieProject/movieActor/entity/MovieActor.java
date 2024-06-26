@@ -1,14 +1,12 @@
-package me.gyuri.movieProject.movieActor;
+package me.gyuri.movieProject.movieActor.entity;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import me.gyuri.movieProject.actor.Actor;
-import me.gyuri.movieProject.movie.Movie;
-
-import java.util.Date;
+import me.gyuri.movieProject.actor.entity.Actor;
+import me.gyuri.movieProject.movie.entity.Movie;
 
 @Entity
 @Getter

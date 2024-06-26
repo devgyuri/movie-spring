@@ -1,0 +1,27 @@
+schema  {
+    query: Query,
+    mutation: Mutation,
+}
+
+scalar Date
+
+input CreateMovieInput {
+    id: String!
+    title: String!
+    openDt: Date!
+}
+
+type Movie {
+    id: String!
+    title: String!
+    openDt: Date!
+}
+
+type Query {
+    graphQlTest: String
+}
+
+type Mutation {
+    createMovie(id: String!, title: String!, openDt: Date!): Movie,
+    createMovieInputType(input: CreateMovieInput!): Movie
+}

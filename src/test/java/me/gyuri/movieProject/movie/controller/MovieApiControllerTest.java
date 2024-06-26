@@ -1,10 +1,9 @@
 package me.gyuri.movieProject.movie.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import me.gyuri.movieProject.movie.Movie;
-import me.gyuri.movieProject.movie.dto.CreateMovieRequest;
+import me.gyuri.movieProject.movie.entity.Movie;
+import me.gyuri.movieProject.movie.dto.CreateMovieInput;
 import me.gyuri.movieProject.movie.repository.MovieRepository;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -17,6 +16,7 @@ import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -53,8 +53,8 @@ class MovieApiControllerTest {
         final String url = "/api/movies";
         final String id = "ID";
         final String title = "title";
-        final Date date = new Date();
-        final CreateMovieRequest userRequest = new CreateMovieRequest(id, title, date);
+        final LocalDate date = LocalDate.of(2020, 3, 4);
+        final CreateMovieInput userRequest = new CreateMovieInput(id, title, date);
 
         final String requestBody = objectMapper.writeValueAsString(userRequest);
 

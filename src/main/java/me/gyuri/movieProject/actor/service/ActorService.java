@@ -1,7 +1,7 @@
 package me.gyuri.movieProject.actor.service;
 
 import lombok.RequiredArgsConstructor;
-import me.gyuri.movieProject.actor.Actor;
+import me.gyuri.movieProject.actor.entity.Actor;
 import me.gyuri.movieProject.actor.repository.ActorRepository;
 import me.gyuri.movieProject.movie.dto.CreateActorRequest;
 import org.springframework.stereotype.Service;

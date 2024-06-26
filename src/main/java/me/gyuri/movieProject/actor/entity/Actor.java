@@ -1,11 +1,11 @@
-package me.gyuri.movieProject.actor;
+package me.gyuri.movieProject.actor.entity;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import me.gyuri.movieProject.movieActor.MovieActor;
+import me.gyuri.movieProject.movieActor.entity.MovieActor;
 
 import java.util.ArrayList;
 import java.util.List;
