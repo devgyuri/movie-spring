@@ -6,13 +6,14 @@ schema  {
 scalar Date
 
 input CreateMovieInput {
-    id: String!
+    code: String!
     title: String!
     openDt: Date!
 }
 
 type Movie {
-    id: String!
+    id: ID!
+    code: String!
     title: String!
     openDt: Date!
 }
@@ -22,6 +23,6 @@ type Query {
 }
 
 type Mutation {
-    createMovie(id: String!, title: String!, openDt: Date!): Movie,
+    createMovie(code: String!, title: String!, openDt: Date!): Movie,
     createMovieInputType(input: CreateMovieInput!): Movie
 }

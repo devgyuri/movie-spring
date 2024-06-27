@@ -1,0 +1,10 @@
+mutation ($input: CreateMovieInput!) {
+    createMovieInputType(
+        input: $input
+    ) {
+        id
+        code
+        title
+        openDt
+    }
+}

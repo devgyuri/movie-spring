@@ -1,0 +1,12 @@
+mutation ($code: String!, $title: String!, $openDt: Date!) {
+    createMovie(
+        code: $code
+        title: $title
+        openDt: $openDt
+    ) {
+        id
+        code
+        title
+        openDt
+    }
+}

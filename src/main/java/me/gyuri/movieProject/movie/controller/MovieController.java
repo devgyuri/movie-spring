@@ -13,7 +13,7 @@ import java.time.LocalDate;
 
 @RequiredArgsConstructor
 @Controller
-public class MovieApiController {
+public class MovieController {
     private final MovieService movieService;
 
     @QueryMapping
@@ -22,8 +22,8 @@ public class MovieApiController {
     }
 
     @MutationMapping
-    public Movie createMovie(@Argument String id, @Argument String title, @Argument LocalDate openDt) {
-        return movieService.createMovie(new CreateMovieInput(id, title, openDt));
+    public Movie createMovie(@Argument String code, @Argument String title, @Argument LocalDate openDt) {
+        return movieService.createMovie(new CreateMovieInput(code, title, openDt));
     }
 
     @MutationMapping

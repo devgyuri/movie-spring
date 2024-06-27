@@ -12,13 +12,13 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Getter
 public class CreateMovieInput {
-    private String id;
+    private String code;
     private String title;
     private LocalDate openDt;
 
     public Movie toEntity() {
         return Movie.builder()
-                .id(id)
+                .code(code)
                 .title(title)
                 .openDt(openDt)
                 .build();

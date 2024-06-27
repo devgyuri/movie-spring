@@ -1,9 +1,6 @@
 package me.gyuri.movieProject.movie.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -19,8 +16,12 @@ import java.util.List;
 @Getter
 public class Movie {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", insertable = false, updatable = false)
-    private String id;
+    private Long id;
+
+    @Column(name = "code", nullable = false, unique = true)
+    private String code;
 
     @Column(name = "title", nullable = false)
     private String title;
@@ -32,8 +33,8 @@ public class Movie {
     private List<MovieActor> movieActors = new ArrayList<>();
 
     @Builder
-    public Movie(String id, String title, LocalDate openDt) {
-        this.id = id;
+    public Movie(String code, String title, LocalDate openDt) {
+        this.code = code;
         this.title = title;
         this.openDt = openDt;
     }
