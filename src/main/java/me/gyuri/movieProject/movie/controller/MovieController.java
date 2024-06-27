@@ -17,8 +17,8 @@ public class MovieController {
     private final MovieService movieService;
 
     @QueryMapping
-    public String graphQlTest() {
-        return "Hello, world!";
+    public Movie fetchMovie(@Argument String code) {
+        return movieService.findMovieByCode(code);
     }
 
     @MutationMapping
@@ -27,8 +27,8 @@ public class MovieController {
     }
 
     @MutationMapping
-    public Movie createMovieInputType(@Argument CreateMovieInput input) {
-        return movieService.createMovie(input);
+    public Movie createMovieInputType(@Argument CreateMovieInput createMovieInput) {
+        return movieService.createMovie(createMovieInput);
     }
 
 //    @QueryMapping

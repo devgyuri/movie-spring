@@ -1,0 +1,29 @@
+scalar Date
+
+input CreateMovieInput {
+    code: String!
+    title: String!
+    openDt: Date!
+}
+
+type Movie {
+    id: ID!
+    code: String!
+    title: String!
+    openDt: Date!
+    avgStar: Float
+    cntStar: Int
+    rating: Int
+    plot: String
+    runtime: Int
+    movieActors: [MovieActor]
+}
+
+type Query {
+    fetchMovie(code: String!): Movie
+}
+
+type Mutation {
+    createMovie(code: String!, title: String!, openDt: Date!): Movie,
+    createMovieInputType(createMovieInput: CreateMovieInput!): Movie
+}

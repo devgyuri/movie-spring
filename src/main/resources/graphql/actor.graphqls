@@ -1,0 +1,6 @@
+type Actor {
+    id: ID!
+    name: String!
+    url: String
+    movieActors: [MovieActor]
+}

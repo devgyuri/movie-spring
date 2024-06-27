@@ -1,0 +1,5 @@
+type MovieActor {
+    id: ID!
+    movie: Movie!
+    actor: Actor!
+}

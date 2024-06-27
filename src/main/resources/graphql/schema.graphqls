@@ -2,27 +2,3 @@ schema  {
     query: Query,
     mutation: Mutation,
 }
-
-scalar Date
-
-input CreateMovieInput {
-    code: String!
-    title: String!
-    openDt: Date!
-}
-
-type Movie {
-    id: ID!
-    code: String!
-    title: String!
-    openDt: Date!
-}
-
-type Query {
-    graphQlTest: String
-}
-
-type Mutation {
-    createMovie(code: String!, title: String!, openDt: Date!): Movie,
-    createMovieInputType(input: CreateMovieInput!): Movie
-}

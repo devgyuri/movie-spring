@@ -10,7 +10,7 @@ import me.gyuri.movieProject.movieActor.entity.MovieActor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
-public class CreateMovieActorRequest {
+public class CreateMovieActorInput {
     private Movie movie;
     private Actor actor;
 

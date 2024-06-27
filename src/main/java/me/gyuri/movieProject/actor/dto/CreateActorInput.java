@@ -8,7 +8,7 @@ import me.gyuri.movieProject.actor.entity.Actor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
-public class CreateActorRequest {
+public class CreateActorInput {
     private String name;
     private String url;
 
