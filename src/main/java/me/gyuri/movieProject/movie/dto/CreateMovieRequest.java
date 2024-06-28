@@ -2,22 +2,20 @@ package me.gyuri.movieProject.movie.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
-import me.gyuri.movieProject.movie.Movie;
+import me.gyuri.movieProject.movie.entity.Movie;
 
-import java.util.Date;
+import java.time.LocalDate;
 
-@NoArgsConstructor
 @AllArgsConstructor
 @Getter
 public class CreateMovieRequest {
-    private String id;
+    private String code;
     private String title;
-    private Date openDt;
+    private LocalDate openDt;
 
     public Movie toEntity() {
         return Movie.builder()
-                .id(id)
+                .code(code)
                 .title(title)
                 .openDt(openDt)
                 .build();

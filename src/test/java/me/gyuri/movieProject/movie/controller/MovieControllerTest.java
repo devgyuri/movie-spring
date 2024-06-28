@@ -1,10 +1,9 @@
 package me.gyuri.movieProject.movie.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import me.gyuri.movieProject.movie.Movie;
 import me.gyuri.movieProject.movie.dto.CreateMovieRequest;
+import me.gyuri.movieProject.movie.entity.Movie;
 import me.gyuri.movieProject.movie.repository.MovieRepository;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -17,7 +16,7 @@ import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -26,7 +25,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-class MovieApiControllerTest {
+class MovieControllerTest {
     @Autowired
     protected MockMvc mockMvc;
 
@@ -50,11 +49,11 @@ class MovieApiControllerTest {
     @Test
     public void createMovie() throws Exception {
         // given
-        final String url = "/api/movies";
-        final String id = "ID";
+        final String url = "/api/movie";
+        final String code = "code";
         final String title = "title";
-        final Date date = new Date();
-        final CreateMovieRequest userRequest = new CreateMovieRequest(id, title, date);
+        final LocalDate openDt = LocalDate.of(2020, 3, 4);
+        final CreateMovieRequest userRequest = new CreateMovieRequest(code, title, openDt);
 
         final String requestBody = objectMapper.writeValueAsString(userRequest);
 
@@ -69,8 +68,8 @@ class MovieApiControllerTest {
         List<Movie> movies = movieRepository.findAll();
 
         assertThat(movies.size()).isEqualTo(1);
-        assertThat(movies.get(0).getId()).isEqualTo(id);
+        assertThat(movies.get(0).getCode()).isEqualTo(code);
         assertThat(movies.get(0).getTitle()).isEqualTo(title);
-        assertThat(movies.get(0).getOpenDt()).isEqualTo(date);
+        assertThat(movies.get(0).getOpenDt()).isEqualTo(openDt);
     }
 }

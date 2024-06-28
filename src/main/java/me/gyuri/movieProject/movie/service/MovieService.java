@@ -1,9 +1,9 @@
 package me.gyuri.movieProject.movie.service;
 
 import lombok.RequiredArgsConstructor;
-import me.gyuri.movieProject.actor.Actor;
+import me.gyuri.movieProject.actor.entity.Actor;
 import me.gyuri.movieProject.actor.service.ActorService;
-import me.gyuri.movieProject.movie.Movie;
+import me.gyuri.movieProject.movie.entity.Movie;
 import me.gyuri.movieProject.movie.dto.CreateActorRequest;
 import me.gyuri.movieProject.movie.dto.CreateMovieRequest;
 import me.gyuri.movieProject.movie.repository.MovieRepository;
@@ -17,6 +17,10 @@ public class MovieService {
     private final MovieRepository movieRepository;
     private final ActorService actorService;
     private final MovieActorService movieActorService;
+
+    public Movie findMovieByCode(String code) {
+        return movieRepository.findTop1ByCode(code);
+    }
 
     public Movie createMovie(CreateMovieRequest request) {
         return movieRepository.save(request.toEntity());

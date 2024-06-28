@@ -3,9 +3,9 @@ package me.gyuri.movieProject.movieActor.dto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import me.gyuri.movieProject.actor.Actor;
-import me.gyuri.movieProject.movie.Movie;
-import me.gyuri.movieProject.movieActor.MovieActor;
+import me.gyuri.movieProject.actor.entity.Actor;
+import me.gyuri.movieProject.movie.entity.Movie;
+import me.gyuri.movieProject.movieActor.entity.MovieActor;
 
 @NoArgsConstructor
 @AllArgsConstructor
