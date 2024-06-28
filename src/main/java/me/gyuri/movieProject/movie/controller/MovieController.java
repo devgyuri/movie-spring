@@ -2,23 +2,25 @@ package me.gyuri.movieProject.movie.controller;
 
 import lombok.RequiredArgsConstructor;
 import me.gyuri.movieProject.movie.dto.CreateMovieRequest;
+import me.gyuri.movieProject.movie.dto.MovieResponse;
 import me.gyuri.movieProject.movie.entity.Movie;
 import me.gyuri.movieProject.movie.service.MovieService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
 @RestController
 public class MovieController {
     private final MovieService movieService;
 
-//    @GetMapping("/api/movie/")
-//    public Movie fetchMovie(@Argument String code) {
-//        return movieService.findMovieByCode(code);
-//    }
+    @GetMapping("/api/movies/{code}")
+    public ResponseEntity<MovieResponse> fetchMovie(@PathVariable String code) {
+        Movie movie = movieService.findMovieByCode(code);
+
+        return ResponseEntity.ok()
+                .body(new MovieResponse(movie));
+    }
 
     @PostMapping("/api/movie")
     public ResponseEntity<Movie> createMovie(@RequestBody CreateMovieRequest request) {
